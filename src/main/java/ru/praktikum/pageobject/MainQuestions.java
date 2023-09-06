@@ -13,8 +13,9 @@ public class MainQuestions {
     public MainQuestions(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-
+    // Список вопросов в блоке "Вопросы о важном"
     public By question = By.className("accordion__button");
+    // Список ответов в блоке "Вопросы о важном"
     public By questionText = By.xpath("//*[@class='accordion__panel']/p");
 
     public void clickOnQuestion(int key) {

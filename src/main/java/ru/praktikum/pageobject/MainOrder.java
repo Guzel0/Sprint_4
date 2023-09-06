@@ -13,25 +13,43 @@ public class MainOrder {
     public MainOrder(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-
+    // Верхняя кнопка "Заказать"
     public By orderButtonTop = By.xpath("//*[@id='root']/div/div[1]/div[1]/div[2]/button[1]");
+    // Нижняя кнопка "Заказать"
     public By orderButtonDown = By.xpath("//*[@id='root']/div/div[1]/div[4]/div[2]/div[5]/button");
+    // Поле ввода "*Имя"
     public By formName = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[1]/input");
+    // Поле ввода "*Фамилия"
     public By formSurname = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/input");
+    // Поле ввода "*Адрес: куда привезти заказ"
     public By formAddress = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[3]/input");
+    // Выпадающий список поля "*Станция метро"
     public By formMetroList = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/div/div[2]/ul/li");
+    // Поле ввода "*Станция метро"
     public By formMetro = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/div/div/input");
+    // Поле ввода "*Телефон: на него позвонит курьер"
     public By formPhone = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[5]/input");
+    // Кнопка "да все привыкли"
     public By cookieButton = By.xpath("//*[@id='rcc-confirm-button']");
+    // Кнопка "Далее"
     public By formButton = By.xpath("//*[@id='root']/div/div[2]/div[3]/button");
+    // Поле ввода "*Когда привезти самокат"
     public By secondFormDate = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    // Поле ввода "*Срок аренды"
     public By secondFormLongTimeArrow = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/div/div[2]/span");
+    // Выпадающий список поля "*Срок аренды"
     public By secondFormLongTimeOptions = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/div[2]/div");
+    // Поле ввода "Комментарий для курьера"
     public By secondFormComment = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/input");
+    // Чекбоксы "Цвет самоката"
     public By secondFormCheckoutInputs = By.className("Checkbox_Input__14A2w");
+    // Кнопка "Далее"
     public By secondFormButton = By.xpath("//*[@id='root']/div/div[2]/div[3]/button[2]");
+    // Модальное окно "Хотите оформить заказ?"
     public By confirmationModal = By.xpath("//*[@id='root']/div/div[2]/div[5]");
+    // Кнопка "Да" в модальном окне
     public By confirmationModalButton = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
+    // Модальное окно об успешном содании заказа
     public By successModal = By.xpath("//*[contains(text(), 'Посмотреть статус')]");
 
     public void clickOnOrderButtonTop() {
