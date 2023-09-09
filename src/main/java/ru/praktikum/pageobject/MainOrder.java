@@ -14,41 +14,41 @@ public class MainOrder {
         this.webDriver = webDriver;
     }
     // Верхняя кнопка "Заказать"
-    public By orderButtonTop = By.xpath("//*[@id='root']/div/div[1]/div[1]/div[2]/button[1]");
+    public By orderButtonTop = By.xpath("//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
     // Нижняя кнопка "Заказать"
-    public By orderButtonDown = By.xpath("//*[@id='root']/div/div[1]/div[4]/div[2]/div[5]/button");
+    public By orderButtonDown = By.xpath("//div[@class='Home_FinishButton__1_cWm']/button[contains(@class, 'Button_Button__ra12g')]");
     // Поле ввода "*Имя"
-    public By formName = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[1]/input");
+    public By formName = By.xpath("//div[@class='Input_InputContainer__3NykH']/input[@placeholder='* Имя']");
     // Поле ввода "*Фамилия"
-    public By formSurname = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/input");
+    public By formSurname = By.xpath("//div[@class='Input_InputContainer__3NykH']/input[@placeholder='* Фамилия']");
     // Поле ввода "*Адрес: куда привезти заказ"
-    public By formAddress = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[3]/input");
+    public By formAddress = By.xpath("//div[@class='Input_InputContainer__3NykH']/input[@placeholder='* Адрес: куда привезти заказ']");
     // Выпадающий список поля "*Станция метро"
-    public By formMetroList = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/div/div[2]/ul/li");
+    public By formMetroList = By.className("select-search__row");
     // Поле ввода "*Станция метро"
-    public By formMetro = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/div/div/input");
+    public By formMetro = By.className("select-search__input");
     // Поле ввода "*Телефон: на него позвонит курьер"
-    public By formPhone = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[5]/input");
+    public By formPhone = By.xpath("//div[@class='Input_InputContainer__3NykH']/input[@placeholder='* Телефон: на него позвонит курьер']");
     // Кнопка "да все привыкли"
     public By cookieButton = By.xpath("//*[@id='rcc-confirm-button']");
     // Кнопка "Далее"
-    public By formButton = By.xpath("//*[@id='root']/div/div[2]/div[3]/button");
+    public By formButton = By.xpath("//div[@class='Order_NextButton__1_rCA']/button[contains(@class, 'Button_Button__ra12g')]");
     // Поле ввода "*Когда привезти самокат"
-    public By secondFormDate = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    public By secondFormDate = By.xpath("//div[@class='react-datepicker__input-container']/input[contains(@class, 'Input_Input__1iN_Z')]");
     // Поле ввода "*Срок аренды"
-    public By secondFormLongTimeArrow = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/div/div[2]/span");
+    public By secondFormLongTimeArrow = By.className("Dropdown-arrow");
     // Выпадающий список поля "*Срок аренды"
-    public By secondFormLongTimeOptions = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[2]/div[2]/div");
+    public By secondFormLongTimeOptions = By.className("Dropdown-option");
     // Поле ввода "Комментарий для курьера"
-    public By secondFormComment = By.xpath("//*[@id='root']/div/div[2]/div[2]/div[4]/input");
+    public By secondFormComment = By.xpath("//div[@class='Input_InputContainer__3NykH']/input[@placeholder='Комментарий для курьера']");
     // Чекбоксы "Цвет самоката"
     public By secondFormCheckoutInputs = By.className("Checkbox_Input__14A2w");
-    // Кнопка "Далее"
-    public By secondFormButton = By.xpath("//*[@id='root']/div/div[2]/div[3]/button[2]");
+    // Кнопка "Заказать"
+    public By secondFormButton = By.xpath("//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']");
     // Модальное окно "Хотите оформить заказ?"
-    public By confirmationModal = By.xpath("//*[@id='root']/div/div[2]/div[5]");
+    public By confirmationModal = By.className("Order_Modal__YZ-d3");
     // Кнопка "Да" в модальном окне
-    public By confirmationModalButton = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
+    public By confirmationModalButton = By.xpath("//div[@class='Order_Buttons__1xGrp']/button[text()='Да']");
     // Модальное окно об успешном содании заказа
     public By successModal = By.xpath("//*[contains(text(), 'Посмотреть статус')]");
 
@@ -163,5 +163,23 @@ public class MainOrder {
 
     public boolean successModalIsDisplayed() {
         return webDriver.findElement(successModal).isDisplayed();
+    }
+
+    public void fillingOutFirstForm(String name, String surname, String address, int metro, String phone) {
+        pasteName(name);
+        pasteSurname(surname);
+        pasteAddress(address);
+        pasteMetro(metro);
+        pastePhone(phone);
+        clickCookieButton();
+        clickFormButton();
+    }
+
+    public void fillingOutSecondForm(String date, int longTime, int colorNumber, String comment) {
+        clickSecondFormDate(date);
+        pasteLongTime(longTime);
+        clickSecondFormCheckoutInput(colorNumber);
+        pasteSecondFormComment(comment);
+        clickSecondFormButton();
     }
 }

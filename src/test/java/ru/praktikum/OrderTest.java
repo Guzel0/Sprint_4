@@ -73,18 +73,8 @@ public class OrderTest {
     public void firstTest() {
         webDriver.get("https://qa-scooter.praktikum-services.ru/");
         mainOrder.clickOnOrderButton(this.button_type);
-        mainOrder.pasteName(this.name);
-        mainOrder.pasteSurname(this.surname);
-        mainOrder.pasteAddress(this.address);
-        mainOrder.pasteMetro(this.metro);
-        mainOrder.pastePhone(this.phone);
-        mainOrder.clickCookieButton();
-        mainOrder.clickFormButton();
-        mainOrder.clickSecondFormDate(this.date);
-        mainOrder.pasteLongTime(this.longTime);
-        mainOrder.clickSecondFormCheckoutInput(this.colorNumber);
-        mainOrder.pasteSecondFormComment(this.comment);
-        mainOrder.clickSecondFormButton();
+        mainOrder.fillingOutFirstForm(this.name, this.surname, this.address, this.metro, this.phone);
+        mainOrder.fillingOutSecondForm(this.date, this.longTime, this.colorNumber, this.comment);
         mainOrder.clickConfirmButton();
         boolean result = mainOrder.successModalIsDisplayed();
         assertTrue("Не удалось оформить заказ", result);
